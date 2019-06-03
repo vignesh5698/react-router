@@ -46,6 +46,7 @@
   font-weight: bold;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
+  
 }
 
 .form-style{
@@ -87,4 +88,18 @@ input[type=text]:focus, input[type=password]:focus {
 
 .dateDiv{
   margin-bottom: -10%;
+}
+
+.cssprop{
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+    width: 75%;
+    background-color: green;
+  }
+
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width : 992px) {
+    width: 50%;
+    background-color: pink;
+  }
 }
