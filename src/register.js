@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MultiSelect from "@khanacademy/react-multi-select";
-
+// import  MultiSelectReact  from 'multi-select-react';
+import StatefulMultiSelect from "@khanacademy/react-multi-select";
 const options = [
   {label: "One", value: 1},
   {label: "Two", value: 2},
@@ -10,7 +11,8 @@ const options = [
 class Register extends Component {
 
   state = {
-    selected: [],
+    selected1: [],
+    selected2 : []
   }
 
   val = (event) => {
@@ -19,6 +21,7 @@ class Register extends Component {
 
   render() { 
     const {selected} = this.state;
+    
     return ( 
       <div>
         <div className='cssprop'>
@@ -39,16 +42,34 @@ class Register extends Component {
         </div>
        </div>
        <div>
-        <MultiSelect
+        <StatefulMultiSelect
           options={options}
-          selected={selected}
-          onSelectedChanged={selected => this.setState({selected})}
+          selected={this.state.selected1}
+          onSelectedChanged={selected1 => this.setState({selected1})}
+          overrideStrings={{
+            selectSomeItems: "Select items for 1...",
+            allItemsAreSelected: "All Items are Selected",
+            selectAll: "Select All",
+            search: "Search",
+          }}
+        />
+        <StatefulMultiSelect
+          options={options}
+          selected={this.state.selected2}
+          onSelectedChanged={selected2 => this.setState({selected2})}
+          overrideStrings={{
+            selectSomeItems: "Select items for 2...",
+            allItemsAreSelected: "All Items are Selected",
+            selectAll: "Select All",
+            search: "Search",
+          }}
         />
        </div>
       </div>
       
      );
   }
+
 }
  
 export default Register;
